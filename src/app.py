@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from fight import Fight
-from logger import logger
-from players.arnaldor_shuatseneguer import ArnaldorShuatseneguer
-from players.tonyn_stallone import TonynStallone
-from request import FightRequest
+from src.fight import Fight
+from src.logger import logger
+from src.players.arnaldor_shuatseneguer import ArnaldorShuatseneguer
+from src.players.tonyn_stallone import TonynStallone
+from src.request import FightRequest
 
 app = FastAPI()
 

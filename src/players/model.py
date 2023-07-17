@@ -1,7 +1,14 @@
 import abc
 
-from app import logger
-from utils import MyList
+from src.language.es import (
+    PUNCH,
+    KICK,
+    SUPER_ATTACK,
+    SPECIAL_ATTACK,
+    NO_MOVING
+)
+from src.app import logger
+from src.utils import MyList
 
 
 class Player(abc.ABC):
@@ -62,20 +69,17 @@ class Player(abc.ABC):
         movement = self._movements.pop_with_default(0, "")
         attack = self._attacks.pop_with_default(0, "")
         if self._is_super_attack(movement + attack):
-            logger.log(f"{self.name} lo revento con un {self.super_attack_name}")
+            logger.log(SUPER_ATTACK.format(self.name, self.super_attack_name))
             return 3
         elif self._is_special_attack(movement + attack):
-            logger.log(f"{self.name} conecto un {self.special_attack_name}")
+            logger.log(SPECIAL_ATTACK.format(self.name, self.special_attack_name))
             return 2
         elif self._is_kick_attack(attack):
-            logger.log(f"{self.name} dio una gran patada")
+            logger.log(KICK.format(self.name))
             return 1
         elif self._is_punch_attack(attack):
-            logger.log(f"{self.name} dio un puñetazo")
+            logger.log(PUNCH.format(self.name))
             return 1
         else:
-            logger.log(
-                f"{self.name} se olvido que esta \
-                peleando a muerte y se mueve sin atacar"
-            )
+            logger.log(NO_MOVING.format(self.name))
             return 0

@@ -1,6 +1,6 @@
 import pydantic as pd
 
-from players.model import Player
+from src.players.model import Player
 
 
 class Movimiento(pd.BaseModel):

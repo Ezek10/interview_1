@@ -1,5 +1,12 @@
-from app import logger
-from players.model import Player
+from src.app import logger
+from src.players.model import Player
+from src.language.es import (
+    FIRST_HIT,
+    SECOND_PLAYER_DIE,
+    FIRST_PLAYER_DIE,
+    SECOND_PLAYER_WIN,
+    FIRST_PLAYER_WIN,
+)
 
 
 class Fight:
@@ -45,27 +52,24 @@ class Fight:
         total_turns = max(
             self.first.get_amount_of_turns(), self.second.get_amount_of_turns()
         )
-        logger.log(f"El combate comenzo! {self.first.name} dara el primer golpe")
+        logger.log(FIRST_HIT.format(self.first.name))
         turn = 1
         while turn <= total_turns:
             self.second.recieve_damage(self.first.attack())
             if self.second.is_dead():
-                logger.log(f"{self.second.name} murio, sus familiares quizas lo lloren")
+                logger.log(SECOND_PLAYER_DIE.format(self.second.name))
                 logger.log(
-                    f"{self.first.name} gano, y le sobro \
-                    {self.first.get_energy()} de energia"
+                    FIRST_PLAYER_WIN.format(self.first.name, self.first.get_energy())
                 )
                 return self.first
             else:
                 self.first.recieve_damage(self.second.attack())
                 if self.first.is_dead():
+                    logger.log(FIRST_PLAYER_DIE.format(self.first.name))
                     logger.log(
-                        f"{self.first.name} murio, sus familiares van \
-                        a llorarlo toda su vida"
-                    )
-                    logger.log(
-                        f"{self.second.name} sobrevivio, y \
-                        le quedo {self.second.get_energy()} energia"
+                        SECOND_PLAYER_WIN.format(
+                            self.second.name, self.second.get_energy()
+                        )
                     )
                     return self.second
             turn += 1
