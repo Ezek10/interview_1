@@ -10,16 +10,16 @@ help:
 	@echo "format: format code with isort, black, pylint, flake8"
 
 run:
-	uvicorn src.main.app:app --reload
+	uvicorn src.app:app
 
 isort:
-	isort .
+	isort src
 
 black:
-	black .
+	black src
 
 flake:
-	flake8 .
+	flake8 src
 
 test:
 	pytest --cov --cov-config=.coveragerc --cov-report=html
