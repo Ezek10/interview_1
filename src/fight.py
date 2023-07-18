@@ -35,17 +35,8 @@ class Fight:
                 first = player2
                 second = player1
             else:
-                attacks_1 = player1.get_number_of_attacks()
-                attacks_2 = player2.get_number_of_attacks()
-                if attacks_1 < attacks_2:
-                    first = player1
-                    second = player2
-                elif attacks_1 > attacks_2:
-                    first = player2
-                    second = player1
-                else:
-                    first = player1
-                    second = player2
+                first = player1
+                second = player2
 
         return first, second
 

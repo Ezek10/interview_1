@@ -7,7 +7,7 @@ from src.language.es import (
     SPECIAL_ATTACK,
     NO_MOVING
 )
-from src.app import logger
+from src.logger import logger
 from src.utils import MyList
 
 
