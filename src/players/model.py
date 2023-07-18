@@ -1,12 +1,6 @@
 import abc
 
-from src.language.es import (
-    PUNCH,
-    KICK,
-    SUPER_ATTACK,
-    SPECIAL_ATTACK,
-    NO_MOVING
-)
+from src.language.es import KICK, NO_MOVING, PUNCH, SPECIAL_ATTACK, SUPER_ATTACK
 from src.logger import logger
 from src.utils import MyList
 

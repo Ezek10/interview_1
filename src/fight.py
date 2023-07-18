@@ -1,13 +1,13 @@
+from src.language.es import (
+    DRAW,
+    FIRST_HIT,
+    FIRST_PLAYER_DIE,
+    FIRST_PLAYER_WIN,
+    SECOND_PLAYER_DIE,
+    SECOND_PLAYER_WIN,
+)
 from src.logger import logger
 from src.players.model import Player
-from src.language.es import (
-    FIRST_HIT,
-    SECOND_PLAYER_DIE,
-    FIRST_PLAYER_DIE,
-    SECOND_PLAYER_WIN,
-    FIRST_PLAYER_WIN,
-    DRAW
-)
 
 
 class Fight:

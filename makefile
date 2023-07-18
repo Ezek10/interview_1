@@ -1,9 +1,8 @@
-.PHONY: help run isort black flake test
+.PHONY: help run black flake test
 
 
 help:
 	@echo "run: run the project locally"
-	@echo "isort: adjust imports"
 	@echo "black: format code"
 	@echo "flake: lint the code"
 	@echo "test: run the tests"
@@ -11,9 +10,6 @@ help:
 
 run:
 	uvicorn src.app:app
-
-isort:
-	isort src
 
 black:
 	black src
@@ -24,4 +20,4 @@ flake:
 test:
 	pytest --cov --cov-config=.coveragerc --cov-report=html
 
-format: isort black flake
+format: black flake
