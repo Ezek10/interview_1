@@ -2,7 +2,7 @@ from src.fight import Fight
 from src.players.tonyn_stallone import TonynStallone
 
 
-def test_order_of_combat_by_actions():
+def test_order_of_combat_by_actions_player_1():
     player_1 = TonynStallone(
         movements=["D"],
         attacks=["K"]
@@ -15,7 +15,20 @@ def test_order_of_combat_by_actions():
     assert fight.first == player_1
     assert fight.second == player_2
 
-def test_order_of_combat_by_movements():
+def test_order_of_combat_by_actions_player_2():
+    player_1 = TonynStallone(
+        movements=["DA"],
+        attacks=["K"]
+    )
+    player_2 = TonynStallone(
+        movements=["S"],
+        attacks=["K"]
+    )
+    fight = Fight(player_1, player_2)
+    assert fight.first == player_2
+    assert fight.second == player_1
+
+def test_order_of_combat_by_movements_player_1():
     player_1 = TonynStallone(
         movements=["D", ""],
         attacks=["K", "P"]
@@ -27,6 +40,19 @@ def test_order_of_combat_by_movements():
     fight = Fight(player_1, player_2)
     assert fight.first == player_1
     assert fight.second == player_2
+
+def test_order_of_combat_by_movements_player_2():
+    player_2 = TonynStallone(
+        movements=["D", ""],
+        attacks=["K", "P"]
+    )
+    player_1 = TonynStallone(
+        movements=["SA", ""],
+        attacks=["K", ""]
+    )
+    fight = Fight(player_1, player_2)
+    assert fight.first == player_2
+    assert fight.second == player_1
 
 def test_order_of_combat_by_player_1():
     player_1 = TonynStallone(

@@ -38,12 +38,6 @@ class Player(abc.ABC):
             number_of_movements += len(movement)
         return number_of_movements
 
-    def get_number_of_attacks(self) -> int:
-        number_of_attacks = 0
-        for attack in self._attacks:
-            number_of_attacks += len(attack)
-        return number_of_attacks
-
     def is_dead(self) -> bool:
         return self._energy <= 0
 
