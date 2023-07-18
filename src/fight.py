@@ -11,6 +11,8 @@ from src.players.model import Player
 
 
 class Fight:
+    """Fight Manager
+    """
     def __init__(self, player1, player2) -> None:
         self.first, self.second = self._get_order_of_combat(player1, player2)
 
@@ -40,7 +42,12 @@ class Fight:
 
         return first, second
 
-    def start(self):
+    def start(self) -> Player:
+        """method to start the fight between the players
+
+        Returns:
+            (Player | None): Winner | Draw
+        """
         total_turns = max(
             self.first.get_amount_of_turns(), self.second.get_amount_of_turns()
         )

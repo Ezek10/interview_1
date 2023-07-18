@@ -12,6 +12,8 @@ app = FastAPI()
 
 @app.post("/fight")
 async def talana_jrpg(request: FightRequest) -> list[str]:
+    """endpoint for making a fight between two players
+    """
     player1 = request.player1.to_player(TonynStallone)
     player2 = request.player2.to_player(ArnaldorShuatseneguer)
     fight = Fight(player1, player2)

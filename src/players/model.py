@@ -6,6 +6,8 @@ from src.utils import MyList
 
 
 class Player(abc.ABC):
+    """Abstract class to model a player in a fight
+    """
     name: str
     super_attack: str
     special_attack: str
@@ -18,27 +20,48 @@ class Player(abc.ABC):
         self._attacks = MyList(attacks)
 
     def get_energy(self) -> int:
+        """returns the energy of the player
+        """
         return self._energy
 
     def get_number_of_actions(self) -> int:
+        """returns amount of actions plus attacks
+
+        Returns:
+            int: amount of (attacks + movements)
+        """
         number_of_actions = 0
         for ii in range(len(self._movements)):
             number_of_actions += len(self._movements[ii]) + len(self._attacks[ii])
         return number_of_actions
 
     def get_number_of_movements(self) -> int:
+        """returns amount of movements plus attacks
+
+        Returns:
+            int: amount of movements
+        """
         number_of_movements = 0
         for movement in self._movements:
             number_of_movements += len(movement)
         return number_of_movements
 
     def is_dead(self) -> bool:
+        """returns if the player has energy <= 0
+        """
         return self._energy <= 0
 
     def recieve_damage(self, energy: int) -> None:
+        """reduce energy by an amount
+
+        Args:
+            energy (int): amount to reduce
+        """
         self._energy -= energy
 
     def get_amount_of_turns(self) -> int:
+        """returns the total amount of turns based on movements (it should be the same of the attacks)
+        """
         return len(self._movements)
 
     def _is_super_attack(self, action: str) -> bool:
@@ -54,6 +77,11 @@ class Player(abc.ABC):
         return attack == "P"
 
     def attack(self) -> int:
+        """realice the attack using the next movements and attacks set in the player
+
+        Returns:
+            int: energy that will reduce from the enemy
+        """
         movement = self._movements.pop_with_default(0, "")
         attack = self._attacks.pop_with_default(0, "")
         if self._is_super_attack(movement + attack):

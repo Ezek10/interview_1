@@ -1,8 +1,7 @@
-pytest
-flake8
 black
 fastapi[all]
-pydantic
-isort
+flake8
 psycopg2
+pydantic
+pytest
 pytest-cov
