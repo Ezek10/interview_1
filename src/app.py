@@ -10,6 +10,11 @@ from src.request import FightRequest
 app = FastAPI()
 
 
+@app.get("/")
+async def home():
+    return JSONResponse(status_code=200, content="visit localhost:8000/docs to see the documentation")
+
+
 @app.post("/fight")
 async def talana_jrpg(request: FightRequest) -> list[str]:
     """endpoint for making a fight between two players

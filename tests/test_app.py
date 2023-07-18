@@ -4,6 +4,11 @@ from src.app import app
 
 client = TestClient(app)
 
+def test_home():
+    response = client.get("/")
+
+    assert response.status_code == 200
+
 def test_returns_ok_with_winner():
     input = {
         "player1":
