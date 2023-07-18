@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from src.fight import Fight
 from src.logger import logger
+from src.fight import Fight
 from src.players.arnaldor_shuatseneguer import ArnaldorShuatseneguer
 from src.players.tonyn_stallone import TonynStallone
 from src.request import FightRequest
