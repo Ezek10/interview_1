@@ -13,4 +13,4 @@ class PlayerInput(pd.BaseModel):
 
 class FightRequest(pd.BaseModel):
     player1: PlayerInput
-    player2: PlayerInput = None
+    player2: PlayerInput
