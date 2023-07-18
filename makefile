@@ -1,4 +1,4 @@
-.PHONY: help run isort black flake pylint test
+.PHONY: help run isort black flake test
 
 
 help:
@@ -24,4 +24,4 @@ flake:
 test:
 	pytest --cov --cov-config=.coveragerc --cov-report=html
 
-format: isort black flake pylint
+format: isort black flake
