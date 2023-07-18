@@ -1,4 +1,4 @@
-from src.app import logger
+from src.logger import logger
 from src.players.model import Player
 from src.language.es import (
     FIRST_HIT,
@@ -6,6 +6,7 @@ from src.language.es import (
     FIRST_PLAYER_DIE,
     SECOND_PLAYER_WIN,
     FIRST_PLAYER_WIN,
+    DRAW
 )
 
 
@@ -73,3 +74,4 @@ class Fight:
                     )
                     return self.second
             turn += 1
+        logger.log(DRAW)
