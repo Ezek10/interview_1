@@ -1,9 +1,9 @@
-# Entrevista tecnica Talana
+# Entrevista tecnica
 
 ## Descripción
 
-Este repositorio esta preparado para la resolucion de la entrevista tecnica propuesta por Talana para un puesto como Python Developer.
-Se puede encontrar las condiciones de la entrevista en "Desafio TalanaKombat .docx" (nota 1)
+Este repositorio esta preparado para la resolucion de la entrevista tecnica propuesta por ___ para un puesto como Software Support Engineer.
+Se puede encontrar las condiciones de la entrevista en "Consigna.docx" (nota 1)
 
 ## Docker
 
@@ -19,7 +19,7 @@ Ahora corre la imagen
 
 Clone el repositorio: 
 
-    git clone https://github.com/Ezek10/talana_interview.git
+    git clone https://github.com/Ezek10/interview_1.git
 
 Cree una unidad virtual: 
 
